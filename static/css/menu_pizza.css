@@ -11,19 +11,19 @@ body {
     background-size: cover;
 }
 
-.title{
-    font-size: 10vh;
+.title {
+    font-size: 8vh;
     position: relative;
     text-align: center;
     color: white;
     text-shadow: 0px 0px 10px rgb(71, 68, 71);
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 nav {
     background: #ffffff;
     opacity: 0.5;
-
 }
 
 nav ul {
@@ -55,4 +55,37 @@ nav ul li a:hover {
 .active, .active a {
     background:black;
     color: white;
+}
+
+.position {
+    width: 100%;
+}
+
+.button_return {
+    background: #8f918e;
+    font-size: 3vh;
+    margin: 1vh;
+    border: 3px solid black;
+    border-radius: 3px;
+    left: 1%;
+    text-decoration: none;
+    bottom: 5%;
+    position: absolute;
+    padding: 0.8vh;
+    color: black;
+}
+
+.button_order {
+    background: #8f918e;
+    font-size: 3vh;
+    margin: 1vh;
+    border: 2px solid black;
+    border-radius: 3px;
+    right: 1%;
+    text-decoration: none;
+    float: right;
+    bottom: 5%;
+    position: absolute;
+    padding: 0.8vh;
+    color: black;
 }

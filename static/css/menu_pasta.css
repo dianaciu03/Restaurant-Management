@@ -56,3 +56,36 @@ nav ul li a:hover {
     background:black;
     color: white;
 }
+
+.position {
+    width: 100%;
+}
+
+.button_return {
+    background: #8f918e;
+    font-size: 3vh;
+    margin: 1vh;
+    border: 3px solid black;
+    border-radius: 3px;
+    left: 1%;
+    text-decoration: none;
+    bottom: 5%;
+    position: absolute;
+    padding: 0.8vh;
+    color: black;
+}
+
+.button_order {
+    background: #8f918e;
+    font-size: 3vh;
+    margin: 1vh;
+    border: 2px solid black;
+    border-radius: 3px;
+    right: 1%;
+    text-decoration: none;
+    float: right;
+    bottom: 5%;
+    position: absolute;
+    padding: 0.8vh;
+    color: black;
+}
