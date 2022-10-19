@@ -4,14 +4,58 @@
     font-variant: normal;
 }
 
-body {
+/*HOME PAGE*/
+
+.body_home {
     background-image: url("/static/images/background.jpeg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
 }
 
-.title {
+.title_home {
+    font-size: 10vh;
+    position: relative;
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 10px rgb(71, 68, 71)
+}
+
+.options{
+    font-size: 6vh;
+    position: relative;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.image{
+    width: 700px;
+    height: 500px;
+    border-color: black;
+    border-width: 3px;
+}
+
+.table{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px;
+}
+
+#left{
+    padding-left: 35px;
+}
+
+#right{
+    padding-right: 35px;
+}
+
+
+
+
+/*MENU PAGES*/
+
+.title_menu {
     font-size: 8vh;
     position: relative;
     text-align: center;
@@ -98,7 +142,6 @@ nav ul li a:hover {
     text-align: center;
     overflow-y: scroll;
     height: 62vh;
-    
 }
 
 .wrapper {
@@ -151,7 +194,7 @@ nav ul li a:hover {
     top: 5px;
 }
 
-.pzimg {
+.menu_img {
     padding: 13px 13px;
 }
 
@@ -176,3 +219,90 @@ nav ul li a:hover {
     background: #e0ff22; 
   }
   
+/*ORDER DETAILS PAGE*/
+
+.body_details {
+    background-image:url("../images/chefbg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+   
+.title_details {
+    font-size: 10vh;
+    position: relative;
+    text-align: center;
+    color: white;
+    text-shadow: 0px 0px 10px rgb(71, 68, 71);
+    margin-bottom: 10px;
+    margin-top: 10px; 
+}
+
+.logo {
+    position: relative;
+    width: 120px;
+    height: auto;
+    box-align: center;
+}
+
+.text{
+    color: white;
+    position: relative;
+    text-align: center;
+    border: solid white 3px;
+    background: #8f918e;
+    margin-top: 1%;
+    margin-bottom: auto;
+    line-height:500% ;
+    box-align: center;
+}
+
+.total{
+    color: white;
+    position: relative;
+    text-align: center;
+}
+
+.return{
+    background: #8f918e;
+    font-size: 3vh;
+    margin: 1vh;
+    border: 3px solid black;
+    border-radius: 3px;
+    left: 1%;
+    text-decoration: none;
+    bottom: 5%;
+    position: absolute;
+    padding: 0.8vh;
+    color: black;
+}
+
+.return:hover{
+    font-size: 120%;
+}
+
+.submit{
+    background: #8f918e;
+    font-size: 3vh;
+    margin: 1vh;
+    border: 2px solid black;
+    border-radius: 3px;
+    right: 1%;
+    text-decoration: none;
+    float: right;
+    bottom: 5%;
+    position: absolute;
+    padding: 0.8vh;
+    color: black;
+}
+
+.submit:hover{
+        font-size: 120%;
+}
+
+table{
+    margin-left: 25%;
+}
+
+/*TRACK ORDER*/
+

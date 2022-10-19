@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Menu page </title>
-    <link href="{{ url_for('static', filename='/menu_pizza.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/style.css') }}" type="text/css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
 
-<body>
-    <h1 class="title">MENU</h1>
+<body class="body_home">
+    <h1 class="title_menu">MENU</h1>
     <nav>
         <ul>
             <li class="active">
                 <a href="/menu_pizza">Pizza</a>
             </li>
             <li>
-                <a href="menu_pasta.html">Pasta</a>
+                <a href="/menu_pasta">Pasta</a>
             </li>
             <li>
-                <a href="menu_desserts.html">Desserts</a>
+                <a href="/menu_desserts">Desserts</a>
             </li>
             <li>
-                <a href="menu_drinks.html">Drinks</a>
+                <a href="/menu_drinks">Drinks</a>
             </li>
         </ul>
     </nav>
@@ -32,7 +34,7 @@
                 {%for x in result%}  
                 <div class="container">
                     <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
-                    <img class="pzimg" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image" style="width: 120px; height: 120px;">
+                    <img class="menu_img" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image" style="width: 120px; height: 120px;">
                     <div class="head">
                         <h2>{{x[1]}}</h2>
                         <h3>{{x[3]}}</h3>

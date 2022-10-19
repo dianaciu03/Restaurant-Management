@@ -5,26 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Details</title>
-    <link  rel = "stylesheet" href = "../static/css/order_details.css">
+    <link href="{{ url_for('static', filename='/style.css') }}" type="text/css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
-<body>
-    <div>
-        <h1 class = "title">Order details</h1>
-        <img src="../static/images/logo_real.png"></a>
-    </div>
-
+<body class="body_details">
+    <table width="50%"> 
+        <tr>
+            <td width="5%"><img class="logo"  src="{{ url_for('static', filename='images/logo_real.png') }}"></td>
+            <td> <h1 class="title_details">Order details</h1></td>
+        </tr>
+    </table>
+   
     <div>
         <h3 class ="text">poijihghg<br>
-            knjbhiug<br>
-            bfdsgnghf</h3>
+                          dfknjbhiu<br>
+                          ffbfdsgng</h3>
     </div>
-    <div>
-        <h2>Total:56</h2>
-
+    
+    <div >
+        <h2 class="total">Total:56</h2>
     </div>
     <div class = "position">
-        <a class="return" href="menu_pizza.html">RETURN</a>
-        <a class="submit" href="track_order.html">SUBMIT ORDER</a>  
+        <a class="return" href=/menu_pizza>RETURN</a>
+        <a class="submit" href=/track_order>SUBMIT ORDER</a>  
     </div>
 </body>
 </html>

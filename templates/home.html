@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Main page </title>
-   <link href="{{ url_for('static', filename='/main.css') }}" type="text/css" rel="stylesheet">
+   <link href="{{ url_for('static', filename='/style.css') }}" type="text/css" rel="stylesheet">
    <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'></head>
-<body>
-    <h1 class="title">Mario and Luigi's pizzas</h1>
+<body class="body_home">
+    <h1 class="title_home">Mario and Luigi's pizzas</h1>
 <table class="table">
     <tr>   
     <td><h2 class="options">Delivery</h2></td>
@@ -19,7 +21,7 @@
         </a>
     </td>
     <td>
-        <a href="menu_pizza.html">
+        <a href="/menu_pizza">
         <img class="image" class="hover_effect" id="left" src="{{ url_for('static', filename='images/dinein.jpg') }}"/>
         </a>
     </td>

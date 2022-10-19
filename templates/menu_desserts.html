@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title> Menu page </title>
-   <link href="../static/css/menu_pizza.css" type="text/css" rel="stylesheet">
+   <link href="{{ url_for('static', filename='/style.css') }}" type="text/css" rel="stylesheet">
    <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'></head>
-<body>
-    <h1 class="title">MENU</h1>
+<body class="body_home">
+    <h1 class="title_menu">MENU</h1>
    <nav>
     <ul>
         <li>
-            <a href="menu_pizza.html">Pizza</a>
+            <a href="/menu_pizza">Pizza</a>
         </li>
         <li>
-            <a href="menu_pasta.html">Pasta</a>
+            <a href="/menu_pasta">Pasta</a>
         </li>
         <li class="active">
-            <a href="menu_desserts.html">Desserts</a>
+            <a href="/menu_desserts">Desserts</a>
         </li>
         <li>
-            <a href="menu_drinks.html">Drinks</a>
+            <a href="/menu_drinks">Drinks</a>
         </li>
     </ul>
    </nav>
@@ -27,8 +29,8 @@
     MAIN CONTENT
    </div>
    <div class="position">
-        <a class="button_return" href="main.html">RETURN</a>
-        <a class="button_order" href="order_details.html">ORDER DETAILS</a>
+    <a class="button_return" href=/home>RETURN</a>
+    <a class="button_order" href=..templates/order_details>ORDER DETAILS</a>
    </div>
 </body>
 </html>
