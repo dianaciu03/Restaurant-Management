@@ -2,34 +2,54 @@
 <html>
 
 <head>
-   <title> Menu page </title>
-   <link href="../static/css/menu_pizza.css" type="text/css" rel="stylesheet">
-   <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
+    <title> Menu page </title>
+    <link href="{{ url_for('static', filename='/menu_pizza.css') }}" type="text/css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
+
 <body>
     <h1 class="title">MENU</h1>
-   <nav>
-    <ul>
-        <li class="active">
-            <a href="menu_pizza.html">Pizza</a>
-        </li>
-        <li>
-            <a href="menu_pasta.html">Pasta</a>
-        </li>
-        <li>
-            <a href="menu_desserts.html">Desserts</a>
-        </li>
-        <li>
-            <a href="menu_drinks.html">Drinks</a>
-        </li>
-    </ul>
-   </nav>
-   <div>
-    MAIN CONTENT
-   </div>
-   <div class="position">
-        <a class="button_return" href=..templates/main">RETURN</a>
-        <a class="button_order" href=..templates/order_details>ORDER DETAILS</a>
-   </div>
+    <nav>
+        <ul>
+            <li class="active">
+                <a href="/menu_pizza">Pizza</a>
+            </li>
+            <li>
+                <a href="menu_pasta.html">Pasta</a>
+            </li>
+            <li>
+                <a href="menu_desserts.html">Desserts</a>
+            </li>
+            <li>
+                <a href="menu_drinks.html">Drinks</a>
+            </li>
+        </ul>
+    </nav>
+    <div>
+        <div class="mainwrapper">
+            <div class="wrapper">
+
+                {%for x in result%}  
+                <div class="container">
+                    <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
+                    <img class="pzimg" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image" style="width: 120px; height: 120px;">
+                    <div class="head">
+                        <h2>{{x[1]}}</h2>
+                        <h3>{{x[3]}}</h3>
+                    </div>
+                    <h1 class="price">{{x[2]}}</h1>
+                    <div class="buttons">
+                        <a href="#">Add</a>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+
+        <div class="position">
+            <a class="button_return" href=/home>RETURN</a>
+            <a class="button_order" href=..templates/order_details>ORDER DETAILS</a>
+        </div>
 </body>
+
 </html>
