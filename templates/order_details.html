@@ -9,25 +9,40 @@
     <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
 <body class="body_details">
-    <table width="50%"> 
+    <table>
         <tr>
-            <td width="5%"><img class="logo"  src="{{ url_for('static', filename='images/logo_real.png') }}"></td>
-            <td> <h1 class="title_details">Order details</h1></td>
+            <td>
+                <img class="logo" src="../static/images/logo_real.png">
+            </td>
+            <td>
+                <h1 class = "title_details">Order details</h1>
+            </td>
         </tr>
+        
     </table>
-   
-    <div>
-        <h3 class ="text">poijihghg<br>
-                          dfknjbhiu<br>
-                          ffbfdsgng</h3>
-    </div>
-    
-    <div >
-        <h2 class="total">Total:56</h2>
+
+    <div class="mainwrapper">
+        <div class="wrapper">
+
+            {%for x in result%}  
+            <div class="container">
+                <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
+                
+                <div class="head">
+                    <h2>{{x[1]}}</h2>
+                    
+                </div>
+                <h1 class="price">{{x[2]}}</h1>
+                <div class="buttons">
+                    <a href="#">Add</a>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
     </div>
     <div class = "position">
-        <a class="return" href=/menu_pizza>RETURN</a>
-        <a class="submit" href=/track_order>SUBMIT ORDER</a>  
+        <a class="return" href="menu_pizza.html">RETURN</a>
+        <a class="submit" href="track_order.html">SUBMIT ORDER</a>  
     </div>
 </body>
 </html>
