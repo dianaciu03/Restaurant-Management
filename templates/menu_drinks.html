@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Menu page </title>
-    <link href="{{ url_for('static', filename='/style.css') }}" type="text/css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
-</head>
-
+   <title> Menu page </title>
+   <link href="{{ url_for('static', filename='/styles.css') }}" type="text/css" rel="stylesheet">
+   <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'></head>
 <body class="body_home">
-    <table style="margin-left: 38%;">
-        <tr>
-            <td>
-                <img class="logo" src="../static/images/logo_real.png">
-            </td>
-            <td>
-                <h1 class="title_menu">MENU</h1>
-            </td>
-        </tr>
-    </table>
-    <nav>
-        <ul>
-            <li>
-                <a href="/menu_pizza">Pizza</a>
-            </li>
-            <li>
-                <a href="/menu_pasta">Pasta</a>
-            </li>
-            <li>
-                <a href="/menu_desserts">Desserts</a>
-            </li>
-            <li class="active">
-                <a href="/menu_drinks">Drinks</a>
-            </li>
-        </ul>
-    </nav>
-    <div>
-        <div class="mainwrapper">
-            <div class="wrapper">
+    <h1 class="title_menu">MENU</h1>
+   <nav>
+    <ul>
+        <li>
+            <a href="/menu_pizza">Pizza</a>
+        </li>
+        <li>
+            <a href="/menu_pasta">Pasta</a>
+        </li>
+        <li>
+            <a href="/menu_desserts">Desserts</a>
+        </li>
+        <li class="active">
+            <a href="/menu_drinks">Drinks</a>
+        </li>
+    </ul>
+   </nav>
+   <div class="mainwrapper">
+    <div class="wrapper">
 
-                {%for x in result%}
-                <div class="container">
-                    <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
-                    <img class="menu_img" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image"
-                        style="width: 120px; height: 120px;">
-                    <div class="head">
-                        <h2>{{x[1]}}</h2>
-                        <h3>{{x[3]}}</h3>
-                    </div>
-                    <h1 class="price">{{x[2]}}</h1>
-                    <div class="buttons">
-                        <a href="#">Add</a>
-                    </div>
-                </div>
-                {%endfor%}
+        {%for x in result%}
+        <div class="container">
+            <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
+            <img class="pzimg" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image"
+                style="width: 120px; height: 120px;">
+            <div class="head">
+                <h2>{{x[1]}}</h2>
+                <h3>{{x[3]}}</h3>
+            </div>
+            <h1 class="price">{{x[2]}}</h1>
+            <div class="buttons">
+                <a href="/menu_drinks/{{x[0]}}">Add</a>
             </div>
         </div>
-
-        <div class="position">
-            <a class="button_return" href=/home>RETURN</a>
-            <a class="button_order" href=..templates/order_details>ORDER DETAILS</a>
-        </div>
+        {%endfor%}
+    </div>
+</div>
+   <div class="position">
+    <a class="button_return" href=/home>RETURN</a>
+    <a class="button_order" href=/order_details>ORDER DETAILS</a>
+   </div>
 </body>
-
 </html>

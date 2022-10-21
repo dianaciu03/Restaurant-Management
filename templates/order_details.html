@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Details</title>
-    <link href="{{ url_for('static', filename='/style.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/styles.css') }}" type="text/css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
 <body class="body_details">
-    <table style="margin-left: 29%;" >
+    <table>
         <tr>
             <td>
                 <img class="logo" src="../static/images/logo_real.png">
@@ -18,35 +18,34 @@
                 <h1 class = "title_details">Order details</h1>
             </td>
         </tr>
+        
     </table>
 
     <div class="mainwrapper">
-        <div class="wrapper_order_details">
-
-            {%for x in result%}  
-            <div class="container_order_details">
+        <div class="wrapper">
+            <!-- {%for x in result%}   
+                <h1>{{x[0][0]}}</h1>
+            {%endfor%} -->
+            {%for x in result%}     
+            <div class="container">
                 <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
-                <div>
-                    <h3 class="head">Quantity</h3>
-                </div>
+                
                 <div class="head">
-                    <h2>{{x[1]}}</h2>
-                    <div class="button_remove" >
-                        <a class="button_remove" href="#">Remove</a>
-                    </div>
+                    <h2>{{x[1]}}x {{x[0][0]}}</h2>
+                    
                 </div>
-                
-                <h1 class="price">{{x[2]}}</h1>
-                
+                <h1 class="price">€{{x[0][1] * x[1]}}</h1>
+                <div class="buttons">
+                    <a href="/order_details/{{x[0][2]}}">Remove</a>
+                </div>
             </div>
             {%endfor%}
-            <hr class="line">
+            
         </div>
-       
     </div>
     <div class = "position">
-        <a class="return" href=/menu_pizza>RETURN</a>
-        <a class="submit" href=/track_order>SUBMIT ORDER</a>  
+        <a class="return" href="/menu_drinks">RETURN</a>
+        <a class="submit" href="track_order.html">SUBMIT ORDER</a>  
     </div>
 </body>
 </html>
