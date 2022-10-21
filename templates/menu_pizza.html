@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,16 @@
 </head>
 
 <body class="body_home">
-    <h1 class="title_menu">MENU</h1>
+    <table style="margin-left: 38%;">
+        <tr>
+            <td>
+                <img class="logo" src="../static/images/logo_real.png">
+            </td>
+            <td>
+                <h1 class="title_menu">MENU</h1>
+            </td>
+        </tr>
+    </table>
     <nav>
         <ul>
             <li class="active">
@@ -31,10 +41,11 @@
         <div class="mainwrapper">
             <div class="wrapper">
 
-                {%for x in result%}  
+                {%for x in result%}
                 <div class="container">
                     <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
-                    <img class="menu_img" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image" style="width: 120px; height: 120px;">
+                    <img class="menu_img" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image"
+                        style="width: 120px; height: 120px;">
                     <div class="head">
                         <h2>{{x[1]}}</h2>
                         <h3>{{x[3]}}</h3>

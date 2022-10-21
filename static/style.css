@@ -7,7 +7,7 @@
 /*HOME PAGE*/
 
 .body_home {
-    background-image: url("/static/images/background.jpeg");
+    background-image: url("../static/images/background.jpeg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -29,17 +29,31 @@
 }
 
 .image{
-    width: 700px;
-    height: 500px;
+    width: 80vh;
+    height: 53vh;
     border-color: black;
     border-width: 3px;
+}
+
+.image:hover {
+    filter: brightness(50%);
+}
+
+.image:active {
+    width: 79vh;
+    height: 52vh;
 }
 
 .table{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    padding: 1px;
+    margin-top: 0%;
+
+}
+
+.no_margin {
+    margin-top: 0px;
 }
 
 #left{
@@ -74,7 +88,7 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    margin: 15px auto;
+
     overflow: hidden;
     padding-left: 10px;
     padding-right: 10px;
@@ -85,7 +99,7 @@ nav ul li a {
     border-left: 1px solid rgb(0, 0, 0);
     border-right: 1px solid #000000;
     display: block;
-    line-height: 30px;
+    line-height: 5.5vh;
     padding: 10px 60px;
     text-align: center;
     text-decoration: none;
@@ -111,8 +125,8 @@ nav ul li a:hover {
     background: #8f918e;
     font-size: 3vh;
     margin: 1vh;
-    border: 3px solid black;
-    border-radius: 3px;
+    border: 0.3vh solid black;
+    border-radius: 0.5vh;
     left: 1%;
     text-decoration: none;
     bottom: 5%;
@@ -125,8 +139,8 @@ nav ul li a:hover {
     background: #8f918e;
     font-size: 3vh;
     margin: 1vh;
-    border: 2px solid black;
-    border-radius: 3px;
+    border: 0.3vh solid black;
+    border-radius: 0.5vh;
     right: 1%;
     text-decoration: none;
     float: right;
@@ -219,10 +233,12 @@ nav ul li a:hover {
     background: #e0ff22; 
   }
   
+
+
 /*ORDER DETAILS PAGE*/
 
 .body_details {
-    background-image:url("../images/chefbg.jpg");
+    background-image:url("./images/chefbg.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -237,30 +253,65 @@ nav ul li a:hover {
     margin-bottom: 10px;
     margin-top: 10px; 
 }
+.empty {
+    width: 12vh;
+    height: 12vh;
+}
 
 .logo {
     position: relative;
-    width: 120px;
-    height: auto;
+    width: 12vh;
+    height: 12vh;
     box-align: center;
 }
 
-.text{
-    color: white;
-    position: relative;
-    text-align: center;
-    border: solid white 3px;
-    background: #8f918e;
-    margin-top: 1%;
+.wrapper_order_details {
+    display: inline-grid;
+    background: white;
+}
+
+.container_order_details {
+    display: inline-flex;
+    color: black;
+    margin: 17px;
+    width: 90vw;
+}
+
+.head {
+    margin-right: auto;
+    margin-left: 1%;
+    text-align: left;
+}
+
+.price {
+    margin-top: auto;
     margin-bottom: auto;
-    line-height:500% ;
-    box-align: center;
+    margin-right: 0.8%;
+    font-size: 50px;
 }
 
-.total{
-    color: white;
-    position: relative;
-    text-align: center;
+/* button */
+.button_remove {
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.button_remove a {
+    color: #ff2121;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.button_remove a:hover {
+    color: #ce0606;
+}
+
+.quantity {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 0.8%;
+    padding-left: 0.4em;
+    color:black;
 }
 
 .return{
@@ -275,10 +326,6 @@ nav ul li a:hover {
     position: absolute;
     padding: 0.8vh;
     color: black;
-}
-
-.return:hover{
-    font-size: 120%;
 }
 
 .submit{
@@ -296,17 +343,53 @@ nav ul li a:hover {
     color: black;
 }
 
-.submit:hover{
-        font-size: 120%;
-}
-
 table{
     margin-left: 25%;
 }
 
+.line {
+    width: 86vw;
+    background-color: black;
+    height: 0.1vh;
+}
+
+
 /*TRACK ORDER*/
 
+.body_track_order{
+    background-image:url("./images/chefbg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
 
+.order_track_order{
+    background: #8f918e;
+    margin: 1vh;
+    border: 3px solid black;
+    border-radius: 3px;
+    bottom: 5%;
+    color: black;
+    width:10%;
+
+    text-decoration: none;
+    position: absolute;
+    padding: 0.8vh;
+    text-align: center;
+}
+
+.me{
+    background: #8f918e;
+}
+.no{
+    background: #8f918e;
+}
+.da{
+    width: 80%;
+    background: #8f918e;
+    margin-left: 10%;
+    padding: 100px;
+}
 
 
 
@@ -314,7 +397,7 @@ table{
 /*CASHIER&CHEF*/
 
 .body_order {
-    background-color: rgb(185, 184, 184);
+    background-color: rgb(203, 199, 199);
 }
 
 .title_order {
@@ -335,6 +418,48 @@ table{
     border-width: thick;
     border:solid black;
     background: #ffffffd8;
-    opacity: 0.7;
+
     padding: 10px;
+}
+
+.container_details {
+    display: inline-flex;
+    background: rgb(203, 199, 199);
+    color: white;
+    margin: 17px;
+    width: 90vw;
+}
+
+.container_details a {
+    background-color: wheat;
+    box-shadow: 0 5px 0 darkred;
+    color: #ff2121;
+    font-size: 22px;
+    padding: 1em 2.5em;
+    text-decoration: none;
+}
+
+.container_details a:hover {
+    background-color: #ce0606;
+}
+
+.container_details a:active {
+    box-shadow: none;
+    top: 5px;
+}
+
+.order_id {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 0.8%;
+    font-size: 50px;
+    padding-left: 0.4em;
+    color:black;
+}
+
+.head_id {
+    margin-right: auto;
+    margin-left: 1%;
+    text-align: left;
+    color:black;
 }

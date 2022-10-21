@@ -9,7 +9,7 @@
     <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
 <body class="body_details">
-    <table>
+    <table style="margin-left: 29%;" >
         <tr>
             <td>
                 <img class="logo" src="../static/images/logo_real.png">
@@ -18,31 +18,35 @@
                 <h1 class = "title_details">Order details</h1>
             </td>
         </tr>
-        
     </table>
 
     <div class="mainwrapper">
-        <div class="wrapper">
+        <div class="wrapper_order_details">
 
             {%for x in result%}  
-            <div class="container">
+            <div class="container_order_details">
                 <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
-                
+                <div>
+                    <h3 class="head">Quantity</h3>
+                </div>
                 <div class="head">
                     <h2>{{x[1]}}</h2>
-                    
+                    <div class="button_remove" >
+                        <a class="button_remove" href="#">Remove</a>
+                    </div>
                 </div>
+                
                 <h1 class="price">{{x[2]}}</h1>
-                <div class="buttons">
-                    <a href="#">Add</a>
-                </div>
+                
             </div>
             {%endfor%}
+            <hr class="line">
         </div>
+       
     </div>
     <div class = "position">
-        <a class="return" href="menu_pizza.html">RETURN</a>
-        <a class="submit" href="track_order.html">SUBMIT ORDER</a>  
+        <a class="return" href=/menu_pizza>RETURN</a>
+        <a class="submit" href=/track_order>SUBMIT ORDER</a>  
     </div>
 </body>
 </html>
