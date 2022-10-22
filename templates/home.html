@@ -2,28 +2,44 @@
 <html>
 
 <head>
-   <title> Main page </title>
-   <link href="{{ url_for('static', filename='/main.css') }}" type="text/css" rel="stylesheet">
-   <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'></head>
-<body>
-    <h1 class="title">Mario and Luigi's pizzas</h1>
-<table class="table">
-    <tr>   
-    <td><h2 class="options">Delivery</h2></td>
-    <td><h2 class="options">Dine-in</h2></td>
-    </tr>
-    <tr>   
-    <td>
-        <a href="/menu_pizza">
-        <img class="image" class="hover_effect" id="right" src="{{ url_for('static', filename='images/delivery.jpg') }}"/>
-        </a>
-    </td>
-    <td>
-        <a href="menu_pizza.html">
-        <img class="image" class="hover_effect" id="left" src="{{ url_for('static', filename='images/dinein.jpg') }}"/>
-        </a>
-    </td>
-    </tr>
-</table>
+    <title> Main page </title>
+    <link href="{{ url_for('static', filename='/styles.css') }}" type="text/css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
+</head>
+
+<body class="body_home_menu">
+    <table style="margin-left: 21%;">
+        <tr>
+            <td>
+                <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+            </td>
+            <td>
+                <h1 class="title_home">Mario and Luigi's pizzas</h1>
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <td>
+                <h2 class="pick_option">Delivery</h2>
+            </td>
+            <td>
+                <h2 class="pick_option">Dine-in</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="/menu_pizza">
+                    <img class="pick_image" id="right" src="{{ url_for('static', filename='images/delivery.jpg') }}" />
+                </a>
+            </td>
+            <td>
+                <a href="menu_pizza.html">
+                    <img class="pick_image" id="left" src="{{ url_for('static', filename='images/dinein.jpg') }}" />
+                </a>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>

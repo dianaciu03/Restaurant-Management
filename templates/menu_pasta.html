@@ -10,10 +10,19 @@
     <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
 
-<body class="body_home">
-    <h1 class="title_menu">MENU</h1>
+<body class="body_home_menu">
+    <table style="margin-left: 38%;">
+        <tr>
+            <td>
+                <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
+            </td>
+            <td>
+                <h1 class="title_menu">MENU</h1>
+            </td>
+        </tr>
+    </table>
     <nav>
-        <ul>
+        <ul class="no_margin">
             <li>
                 <a href="/menu_pizza">Pizza</a>
             </li>
@@ -33,8 +42,7 @@
 
             {%for x in result%}
             <div class="container">
-                <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
-                <img class="pzimg" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image"
+                <img class="menu_img" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image"
                     style="width: 120px; height: 120px;">
                 <div class="head">
                     <h2>{{x[1]}}</h2>
@@ -48,9 +56,10 @@
             {%endfor%}
         </div>
     </div>
-    <div class="position">
-        <a class="button_return" href=/home>RETURN</a>
-        <a class="button_order" href=/order_details>ORDER DETAILS</a>
+
+    <div class="position_buttons">
+        <a class="button_return_order" id="leftbutton" href="/home">RETURN</a>
+        <a class="button_return_order" id="rightbutton" href="/order_details">ORDER DETAILS</a>
     </div>
 </body>
 

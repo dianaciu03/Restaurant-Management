@@ -192,3 +192,7 @@ def order_details_handler(id):
             
         
     return render_template("order_details.html", result=orderSummary)
+
+@app.route("/track_order")
+def track_order():
+    return render_template("track_order.html")

@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track order</title>
-    <link href="{{ url_for('static', filename='/style.css') }}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='/styles.css') }}" type="text/css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
 </head>
 <body class="body_track_order">
     <table style="margin-left: 32%;" >
         <tr>
             <td>
-                <img class="logo" src="../static/images/logo_real.png">
+                <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}">
             </td>
             <td>
                 <h1 class = "title_details">Track Order</h1>
@@ -34,7 +34,7 @@
     
     </table>
     <div align="center">
-        <a class="order_track_order" href=/home>Order again</a>
+        <a class="order_track_order" href="/home">Order again</a>
      </div>
 
 </body>
