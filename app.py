@@ -1,6 +1,7 @@
 from itertools import count
+import random
 from xml.etree.ElementTree import tostring
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import mysql
 from flask_mysqldb import MySQL
 import mysql.connector  # or from mysql
@@ -174,7 +175,6 @@ def order_details():
 
 @app.route("/order_details/<int:id>")
 def order_details_handler(id):
-
  #remove
     i = 0
     indexList = []
@@ -189,10 +189,62 @@ def order_details_handler(id):
     for x in indexList:  
         orderSummary.pop(x)
                 
-            
-        
     return render_template("order_details.html", result=orderSummary)
 
+
+#SUBMIT ORDER 
+@app.route("/submit_order")
+def submit_order():    
+   
+   #generate order number 
+    def listToString(s):  
+        str1 = ""
+        for ele in s:
+            str1 += ele
+        return str1
+    
+    a = str(random.randint(0, 9))
+    b = str(random.randint(0, 9))
+    c = str(random.randint(0, 9))
+    abc = [a, b, c]
+    
+    
+    orderNumber = listToString(abc)
+    
+   
+    
+    cursor = mysql.connection.cursor()
+    sql = "INSERT INTO tbl_order (`order_nr`, `terminal_id`) VALUES (%s, %s)"
+    val = (orderNumber, 1)
+    cursor.execute(sql, val)
+    
+    #ID OF ORDER CREATED
+    orderId = cursor.lastrowid
+    
+    # cursor.execute(''' INSERT INTO tbl_terminal VALUES(restaurant_id)''')
+    print(cursor)
+    mysql.connection.commit()
+    cursor.close()
+    
+    for x in orderSummary:
+        cursor = mysql.connection.cursor()
+        sql = "INSERT INTO tbl_orderrow (`menu_id`, `order_id`, `quantity`) VALUES (%s, %s, %s)"
+        val = (x[0][2], orderId, x[1])
+        cursor.execute(sql, val)
+        print(cursor)
+        mysql.connection.commit()
+        cursor.close()
+
+    # cursor.execute(''' INSERT INTO tbl_terminal VALUES(restaurant_id)''')
+
+    
+    return redirect("/track_order")
+
+
+#TRACK ORDER 
 @app.route("/track_order")
-def track_order():
+def track_order():    
+    
+    
     return render_template("track_order.html")
+

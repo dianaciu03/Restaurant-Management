@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Menu page </title>
+    <link href="{{ url_for('static', filename='/menu_pizza.css') }}" type="text/css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=IM Fell English SC' rel='stylesheet'>
+</head>
+
+<body>
+    <h1 class="title">MENU</h1>
+    <nav>
+        <ul>
+            <li class="active">
+                <a href="/menu_pizza">Pizza</a>
+            </li>
+            <li>
+                <a href="/menu_pasta">Pasta</a>
+            </li>
+            <li>
+                <a href="/menu_desserts">Desserts</a>
+            </li>
+            <li>
+                <a href="menu_drinks">Drinks</a>
+            </li>
+        </ul>
+    </nav>
+        <div class="mainwrapper">
+            <div class="wrapper">
+
+                {%for x in result%}  
+                <div class="container">
+                    <!-- <img class="pzimg" src="{{ url_for('static', filename='images/{{x[4]}}') }}" alt="image" style="width: 120px; height: 120px;"> -->
+                    <img class="pzimg" src="{{ url_for('static', filename='images/' + x[4]) }}" alt="image" style="width: 120px; height: 120px;">
+                    <div class="head">
+                        <h2>{{x[1]}}</h2>
+                        <h3>{{x[3]}}</h3>
+                    </div>
+                    <h1 class="price">{{x[2]}}</h1>
+                    <div class="buttons">
+                        <a href="/menu_pizza/{{x[0]}}">Add</a>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+
+        <div class="position">
+            <a class="button_return" href=/home>RETURN</a>
+            <a class="button_order" href=/order_details>ORDER DETAILS</a>
+        </div>
+</body>
+
+</html>

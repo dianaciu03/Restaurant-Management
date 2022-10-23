@@ -14,7 +14,7 @@
 /*HOME PAGE*/
 
 .body_home_menu {
-    background-image: url("../static/images/background.jpeg");
+    background-image: url("/static/images/background.jpeg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -253,7 +253,7 @@ nav ul li a:hover {
 /*ORDER DETAILS PAGE*/
 
 .body_details {
-    background-image:url("./images/chefbg.jpg");
+    background-image:url("/static/images/chefbg.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -278,6 +278,7 @@ nav ul li a:hover {
 .wrapper_order_details {
     display: inline-grid;
     background: white;
+    opacity: 65%;
 }
 
 .container_order_details {
@@ -367,7 +368,7 @@ table{
 /*TRACK ORDER*/
 
 .body_track_order{
-    background-image:url("./images/chefbg.jpg");
+    background-image:url("/static/images/chefbg.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
