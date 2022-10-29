@@ -1,5 +1,6 @@
-from itertools import count
+from itertools import count, product
 import random
+from re import A
 from xml.etree.ElementTree import tostring
 from flask import Flask, render_template, request, redirect
 import mysql
@@ -196,6 +197,9 @@ def order_details_handler(id):
 @app.route("/submit_order")
 def submit_order():    
    
+    global orderTrack
+    orderTrack = []
+   
    #generate order number 
     def listToString(s):  
         str1 = ""
@@ -208,10 +212,8 @@ def submit_order():
     c = str(random.randint(0, 9))
     abc = [a, b, c]
     
-    
     orderNumber = listToString(abc)
-    
-   
+    orderTrack.append(orderNumber)
     
     cursor = mysql.connection.cursor()
     sql = "INSERT INTO tbl_order (`order_nr`, `terminal_id`) VALUES (%s, %s)"
@@ -220,6 +222,7 @@ def submit_order():
     
     #ID OF ORDER CREATED
     orderId = cursor.lastrowid
+    orderTrack.append(orderId)
     
     # cursor.execute(''' INSERT INTO tbl_terminal VALUES(restaurant_id)''')
     print(cursor)
@@ -244,7 +247,99 @@ def submit_order():
 #TRACK ORDER 
 @app.route("/track_order")
 def track_order():    
-    
-    
-    return render_template("track_order.html")
+    print(shopCart)
+    print(orderSummary)
+    shopCart.clear()
+    orderSummary.clear()
+    print(shopCart)
+    print(orderSummary)
+    cursor = mysql.connection.cursor()
+    a = str(orderTrack[1])
+    sql = "SELECT SUM(tbl_orderrow.quantity * tbl_menu.price) AS total FROM tbl_orderrow INNER JOIN tbl_menu ON tbl_orderrow.menu_id = tbl_menu.menu_id WHERE tbl_orderrow.order_id =" + a
 
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    
+    return render_template("track_order.html", orderTrack = orderTrack, result = result)
+
+
+# CASHIER PAGE
+@app.route("/cashier")
+def cashier():
+    
+    cursor = mysql.connection.cursor()
+    sql = "SELECT DISTINCT order_id FROM `tbl_orderrow`"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    
+    cashierList = []
+    
+    for orderId in result:
+        
+        order = []
+        products = []
+        
+        a = str(orderId[0])
+        cursor = mysql.connection.cursor()
+        sql = "SELECT tbl_order.order_id,tbl_order.order_nr, tbl_orderrow.quantity, tbl_menu.name, tbl_menu.price * tbl_orderrow.quantity FROM `tbl_orderrow`, tbl_menu, tbl_order WHERE tbl_menu.menu_id = tbl_orderrow.menu_id AND tbl_order.order_id = tbl_orderrow.order_id AND tbl_order.order_id = " + a
+        cursor.execute(sql)
+        result1 = cursor.fetchall()
+        
+        for row in result1:
+            productQuantityPrice = []
+            if row[0] not in order:
+                order.append(row[0])
+                order.append(row[1])
+            productQuantityPrice.append(row[2])
+            productQuantityPrice.append(row[3])
+            productQuantityPrice.append(row[4])
+            
+            products.append(productQuantityPrice)
+            
+        order.append(products)
+        cashierList.append(order)
+        
+    print(cashierList)
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    # print(result)
+    # print(result[0][1])
+    # print(result[0][3])
+    # print(result[0][4])
+    
+    # resultList = []
+    # for x in result:
+    #     if x not in resultList:
+    #         resultList.append(x)
+    #     elif x in resultList:
+    #         for y in resultList:
+    #             if y == x:
+    #                 y[2] += 1
+                    
+    # print(resultList)
+    # print(resultList[1])
+    
+
+    # cashierList = {}
+    # for x in resultList:
+    #     cashierList.setdefault(x[0], []).append(x[3])
+    #     cashierList.setdefault(x[0], []).append(x[2])
+
+        
+        
+            
+    # print(cashierList)
+    
+    return render_template("order_details.html", resultCashier=cashierList)

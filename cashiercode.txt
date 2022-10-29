@@ -1,0 +1,14 @@
+cashierList = [
+[1, 580, [[1, 'Coca cola', Decimal('4.95')], [1, 'Fanta', Decimal('4.95')]]], [2, 517, [[1, 'supperpizza', Decimal('10.50')], [1, 'Coca cola', Decimal('4.95')], [1, 'Fanta', Decimal('4.95')]]]
+
+, [3, 660, [[1, 'supperpizza', Decimal('10.50')], [1, 'pizza', Decimal('10.50')], [1, 'Coca cola', Decimal('4.95')]]], [4, 491, [[1, 'Coca cola', Decimal('4.95')], [1, 'Fanta', Decimal('4.95')], [1, 'Sprite', Decimal('4.95')]]], [5, 25, [[1, 'Coca cola', Decimal('4.95')], [1, 'Fanta', Decimal('4.95')], [1, 'Sprite', Decimal('4.95')]]], [6, 436, [[1, 'Coca cola', Decimal('4.95')], [1, 'Fanta', Decimal('4.95')], [1, 'Sprite', Decimal('4.95')]]], [7, 129, [[1, 'Coca cola', Decimal('4.95')], [1, 'Fanta', Decimal('4.95')], [1, 'Sprite', Decimal('4.95')]]], [8, 952, [[1, 'Coca cola', Decimal('4.95')], [1, 'Fanta', Decimal('4.95')], [1, 'Sprite', Decimal('4.95')]]], [17, 915, [[2, 'Tiramisu', Decimal('9.90')], [1, 'Crema di fragola', Decimal('4.95')], [2, 'Cannoli', Decimal('11.90')], [1, 'Panettone', Decimal('6.95')]]], [18, 638, [[5, 'Tiramisu', Decimal('24.75')], [2, 'Crema di fragola', Decimal('9.90')], [2, 'Cannoli', Decimal('11.90')], [1, 'Panettone', Decimal('6.95')]]]
+]
+
+for order in cashierList:
+	print order[0] : 1
+	print order[1] : 580
+	for item in order[2]:
+		print item[0] : 1
+		print item[1] : 4.95
+		print item[2] : coca cola
+	
