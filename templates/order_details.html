@@ -40,19 +40,6 @@
             </div>
             {%endfor%}
 
-            {%for order in resultCashier%}
-            <div class="container_order_details">
-
-                <div class="head">
-                    <h2>Order no. {{ order[1] }} :</h2>
-
-                </div>
-                <h1 class="price">€</h1>
-                <div class="button_remove">
-                    <a href="/order_details/{{order[0]}}">Remove</a>
-                </div>
-            </div>
-            {%endfor%}
             <hr class="line">
         </div>
     </div>

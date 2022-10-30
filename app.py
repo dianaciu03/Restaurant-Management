@@ -285,11 +285,18 @@ def cashier():
         cursor.execute(sql)
         result1 = cursor.fetchall()
         
+        totalPrice = 0
+        for row in result1:
+            totalPrice += row[4]
+            
+        
         for row in result1:
             productQuantityPrice = []
             if row[0] not in order:
                 order.append(row[0])
                 order.append(row[1])
+                order.append(totalPrice)
+
             productQuantityPrice.append(row[2])
             productQuantityPrice.append(row[3])
             productQuantityPrice.append(row[4])
@@ -300,46 +307,18 @@ def cashier():
         cashierList.append(order)
         
     print(cashierList)
+    
+    return render_template("cashier.html", resultCashier=cashierList)
 
+@app.route("/cashier/<int:id>")
+def cashier_handler(id):
+ #remove
+    a = str(id)
+    cursor = mysql.connection.cursor()
+    sql = "DELETE FROM tbl_order WHERE order_id = " + a
+    cursor.execute(sql)
+    mysql.connection.commit()
+    cursor.close()
+                
+    return redirect("/cashier")
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    # print(result)
-    # print(result[0][1])
-    # print(result[0][3])
-    # print(result[0][4])
-    
-    # resultList = []
-    # for x in result:
-    #     if x not in resultList:
-    #         resultList.append(x)
-    #     elif x in resultList:
-    #         for y in resultList:
-    #             if y == x:
-    #                 y[2] += 1
-                    
-    # print(resultList)
-    # print(resultList[1])
-    
-
-    # cashierList = {}
-    # for x in resultList:
-    #     cashierList.setdefault(x[0], []).append(x[3])
-    #     cashierList.setdefault(x[0], []).append(x[2])
-
-        
-        
-            
-    # print(cashierList)
-    
-    return render_template("order_details.html", resultCashier=cashierList)

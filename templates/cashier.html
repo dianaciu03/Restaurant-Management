@@ -14,16 +14,20 @@
     <div class="mainwrapper">
         <div class="wrapper">
     
-            {%for x in result%}  
+            {%for order in resultCashier%}
             <div class="container_details">
-                <h1 class="order_id">Order ID:</h1>
+                <h1 class="order_id">Order No. : {{order[1]}}</h1>
+
                 <div class="head_id">
-                    <h2>{{x[1]}}</h2>
+                    {%for item in order[3]%}
+                    <h2>{{item[0]}}x {{item[1]}} {{item[2]}}</h2>
+                    {%endfor%}
+                    <hr>
+                    <h2>Total: €{{order[2]}}</h2>
                 </div>
 
                 <div class="buttons">
-                    <a href="#">START ORDER</a>
-                    <a href="#">FINISH ORDER</a>
+                    <a href="/cashier/{{order[0]}}">RECEIPT</a>
                 </div>
             </div>
             {%endfor%}
