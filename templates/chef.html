@@ -13,22 +13,58 @@
 <div class="center_order">
     <div class="mainwrapper">
         <div class="wrapper">
-    
-            {%for x in result%}  
-            <div class="container_details">
-                <h1 class="order_id">Order ID:</h1>
+            
+            {%for order in resultChef%}
+            <div class="container_details" id="{{order[0]}}">
+                <h1 id="order_id" class="order_id">Order No. : {{order[1]}}</h1>
+
                 <div class="head_id">
-                    <h2>{{x[1]}}</h2>
+                    {%for item in order[2]%}
+                    <h1>{{item[0]}}x {{item[1]}}</h1>
+                    <h2>{{item[2]}}</h2>
+                    <hr>
+                    {%endfor%}
+                    
                 </div>
 
                 <div class="buttons">
-                    <a href="#">Print receipt</a>
+                    <a id="a{{order[0]}}" onclick='myfunction_clickevent({{order[0]}}, {{order[1]}})'>Not done</a>
                 </div>
             </div>
             {%endfor%}
         </div>
     </div>
 </div>
+
+<script>
+    document.getElementById("order_id").innerHTML = "EXPIRED";
+</script>
+
+
+<script>
+//Call ajax request to run Arduino/Python script
+function myfunction_clickevent(id, orderNo){
+    $.ajax({
+        url: "/smartOven",
+  
+}).done(function( o ) {
+   document.getElementById(id).style.backgroundColor = "mediumspringgreen";
+   document.getElementById(`a${id}`).innerHTML = "Done!";
+   document.getElementById(`a${id}`).style.backgroundColor = "unset";
+   alert('Order ' + orderNo + ' is done!')
+
+
+
+});
+//When cooking
+   document.getElementById(id).style.backgroundColor = "orange";
+   document.getElementById(`a${id}`).innerHTML = "In progress!";
+   document.getElementById(`a${id}`).style.backgroundColor = "unset";
+}    
+</script>
+
+<!--Import Jquery for ajax-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
 </body>
 </html>

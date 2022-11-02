@@ -446,8 +446,10 @@ table{
     box-shadow: 0 5px 0 darkred;
     color: #ff2121;
     font-size: 22px;
+    font-weight: bold;
     padding: 1em 2.5em;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .container_details a:hover {
@@ -466,6 +468,7 @@ table{
     font-size: 50px;
     padding-left: 0.4em;
     color:black;
+    white-space: nowrap;
 }
 
 .head_id {

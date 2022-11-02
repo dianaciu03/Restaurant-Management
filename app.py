@@ -1,4 +1,8 @@
+from asyncio.windows_events import NULL
+from concurrent.futures import thread
 from itertools import count, product
+import os
+import subprocess
 import random
 from re import A
 from xml.etree.ElementTree import tostring
@@ -11,8 +15,19 @@ import yaml
 from operator import truediv
 import time, sys
 import datetime
+from fhict_cb_01.CustomPymata4 import CustomPymata4
 
 app = Flask(__name__)
+
+#-----------
+# Constants for arduino
+#-----------
+BUTTON1PIN = 8
+BUTTON2PIN = 9
+REDLEDPIN = 4
+GREENLIGHTPIN = 5
+TONE_PIN = 3
+
 
 # db conf
 db = yaml.load(open("db.yaml"), Loader=yaml.Loader)
@@ -321,4 +336,65 @@ def cashier_handler(id):
     cursor.close()
                 
     return redirect("/cashier")
+
+# CHEF PAGE
+@app.route("/chef")
+def chef():
+    
+    cursor = mysql.connection.cursor()
+    sql = "SELECT DISTINCT order_id FROM `tbl_orderrow`"
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    
+    chefList = []
+    
+    for orderId in result:
+        
+        order = []
+        products = []
+        
+        a = str(orderId[0])
+        cursor = mysql.connection.cursor()
+        sql = "SELECT tbl_order.order_id,tbl_order.order_nr, tbl_orderrow.quantity, tbl_menu.name, tbl_menu.ingredients FROM `tbl_orderrow`, tbl_menu, tbl_order WHERE tbl_menu.menu_id = tbl_orderrow.menu_id AND tbl_order.order_id = tbl_orderrow.order_id AND tbl_order.order_id = " + a
+        cursor.execute(sql)
+        result1 = cursor.fetchall()
+        
+              
+        for row in result1:
+            productQuantityPrice = []
+            if row[0] not in order:
+                order.append(row[0])
+                order.append(row[1])
+
+            productQuantityPrice.append(row[2])
+            productQuantityPrice.append(row[3])
+            productQuantityPrice.append(row[4])
+            
+            products.append(productQuantityPrice)
+            
+        order.append(products)
+        chefList.append(order)
+        
+    print(chefList)
+    
+    
+    return render_template("chef.html", resultChef=chefList)
+
+
+
+# ARDUINO smart oven
+@app.route("/smartOven")
+def callArduinoSmartOven():
+ 
+    subprocess.call(["python", "smartOven.py"])
+
+    return ""
+    
+             
+ 
+
+
+    
+   
+
 
