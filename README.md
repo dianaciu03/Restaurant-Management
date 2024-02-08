@@ -3,6 +3,13 @@
 This is a collaborative project for which we were given a prompt and an interview transcript about a family business. We had to define the problem statement and build an IT solution that would improve the current situation of the business. Our solution consists of an interactive and easy to use order interface for the customers to use when ordering, separate GUIs for the chef and cashier to see the current status of the orders and an embedded system for a smart oven that would send real-time information to the employees.
 <br/>Team size: 3 people, Project duration: 3 weeks
 
+## Features
+* Online menu designed for built-in tablets for customers
+* Online ordering process and cart functionality
+* Order overview before checkout
+* Smart oven activated from the chef's GUI that keeps track of cooking time and sends back real-time information
+* Database for persistance
+
 ## Programming Languages
 
 * HTML5, CSS3 and JavaScript for building the web pages
