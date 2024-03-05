@@ -17,9 +17,17 @@ This is a collaborative project for which we were given a prompt and an intervie
 * SQL for creating a script for database initialization
 
 ## Prerequisites
-Create a virtual environment for the arduino setup and install all libraries from the requirements.txt file
+First install all libraries from the requirements.txt file
 ```
 pip install -r requirements.txt
+```
+Then activate the virtual environment for python
+```
+.\venv\Scripts\activate
+```
+Lastly run the application
+```
+flask run
 ```
 <br/>
 Create a phpMyAdmin database and run the sql file in order to populate the app with data for the menu
